@@ -9,7 +9,7 @@
     <li>１番目の要素</li>
     <li>2</li>
     <li>3</li>
-    <li><a href="">３Link</a></li> 
+    <li><a href="Main">３Link</a></li> 
     
     <li>Contact</li>   
     </ul>

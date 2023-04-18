@@ -1,37 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import About from '../pages/About.vue';
-import Pjt1 from '../components/Pjt1.vue';
-import Home from '../components/Home.vue';
-import MainInput from '../components/MainInput.vue'
+import About from '@/components/About.vue'
+import Home from '@/components/Home.vue'
+import Main from '@/components/Main.vue'
 
-
-const router = createRouter({
-    history: createWebHistory(),
-
- routes:[
+const routes = [
   {
    path: '/',
-    name: 'About',
-    component: About
-  },
-  {
-    path: '/Pjt1',
-    name: 'Pjt1',
-    component: Pjt1
-  },
-  {
-    path: '/Home',
     name: 'Home',
     component: Home
   },
+  
   {
-   path: '/MainInput',
-    name: 'Main',
-    component: MainInput
-  }
-]   
+   path: '/About',
+    name: 'About',
+    component: About,
+  },
+  {
+    path: '/Main',
+     name: 'Main',
+     component: Main,
+   }
+] 
+ 
+// ルーターを生成
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes //routes: routes の省略形（routes オプションに上記で定義した routes を指定）
 })
-
-
-
 export default router

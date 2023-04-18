@@ -1,0 +1,9 @@
+/*  /index.html  200!
+
+# Rewrite a path
+/non-existent-path /index.html    200
+
+# Redirect with a 301
+/Home         /              301
+
+

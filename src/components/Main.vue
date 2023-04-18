@@ -1,6 +1,3 @@
-<!--templatesとして使う-->
-
-
 <template>
   
     <div class="contents">

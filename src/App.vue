@@ -1,21 +1,49 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, computed } from 'vue';
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
 import Main from './components/Main.vue';
+import Home from './components/Home.vue';
+import NotFound from './components/NotFound.vue';
+//パスとコンポーネント名からなるルーティング情報のオブジェクトを定義
+const routes = {
+  '/': Home,
+  '/about': About
+};
+ 
+//URL のフラグメント（# 記号からの部分）を取得してリアクティブに
+const currentPath = ref(window.location.hash);
+ 
+//hashchange のイベントリスナー
+window.addEventListener('hashchange', () => {
+  //hashchange イベントでフラグメントを取得して currentPath の value プロパティを更新
+  currentPath.value = window.location.hash;
+  //console.log(currentPath.value); //About のリンクをクリックすると #/about と出力
+});
+ 
+//currentPath.value と routes からコンポーネント名を生成
+const currentView = computed(() => {
+  //currentPath.value.slice(1) は「#」を除いた値（該当しなければ NotFound）
+  return routes[currentPath.value.slice(1) || '/'] || NotFound;
+});
 </script>
 
 <template>
-  
   <TheHeader />
-  <div class="main">
+  <a href="/">Home</a> |
+  <a href="/About">About</a>
+  <a href="/non-existent-path">Broken Link</a>
 
-    <Main />
+  <a href="../non-existent-path">damek</a>
+  <component :is="currentView" />
 
-  </div>
+  <router-link to="/">Home</router-link> |
+    <router-link to="/About">About</router-link> |
+    <router-link to="/Home">Home</router-link>
 
+    
   <TheFooter />
 </template>
 
