@@ -1,0 +1,26 @@
+/*! base.css  */
+
+/*  */
+/* ============================================ */
+
+#app{
+   background:#F5F8FC ; 
+}
+
+.contents{
+    width: 100%;
+    padding:2% 10%;
+}
+
+/* Color */
+.green{background-color: green;}
+.green2{background-color: greenyellow; border:1px solid green;}
+.pink{background-color: #ff4081;}
+
+
+/* Text */
+p{
+    font-size: .9375rem;
+    line-height: 1.7;
+    text-align: left;
+}
